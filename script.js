@@ -16,11 +16,19 @@ function setup() {
 
   slider1.x = windowWidth / 2
   slider1.y = windowHeight / 2
+  slider1.start = 100
+  slider1.end = windowHeight - 100
+  slider1.size = 100
+  slider1.color = [62, 67, 150]
   slider1.label = lerp(8000, -2480 , slider1.y / 1000).toFixed()
   slider1.suffix = 'Hz'
 
   slider2.x = windowWidth / 4
   slider2.y = windowHeight / 2
+  slider2.start = 100
+  slider2.end = windowHeight - 100
+  slider2.size = 100
+  slider2.color = [62, 67, 150]
   slider2.label = lerp(116, -36 , slider2.y / 1000).toFixed()
   slider2.suffix = '%'
 
@@ -76,9 +84,9 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-  slider1.color = 0
+  slider1.color = [62, 67, 150]
   slider1.locked = true
 
-  slider2.color = 0
+  slider2.color = [62, 67, 150]
   slider2.locked = true
 }

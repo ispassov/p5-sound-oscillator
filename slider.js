@@ -1,18 +1,20 @@
 class Slider {
-  constructor(x, y, size, locked, color, label, suffix) {
+  constructor(x, y, start, end, size, locked, color, label, suffix) {
     this.x = x
     this.y = y
-    this.size = 100
+    this.start = start
+    this.end = end
+    this.size = size
     this.locked = true
-    this.color = 0
+    this.color = color
     this.label = label
     this.suffix = suffix
   }
 
   display() {
     fill(this.color)
-    stroke(255)
-    line(this.x, 100, this.x, windowHeight - 100)
+    stroke(195, 198, 253)
+    line(this.x, this.start, this.x, this.end)
     circle(this.x, this.y, this.size)
     textSize(20)
     fill(255)
@@ -26,9 +28,9 @@ class Slider {
   }
 
   isDragging(min, max) {
-    if (!this.locked && mouseY > 100 && mouseY < windowHeight - 100) {
+    if (!this.locked && mouseY > this.start && mouseY < this.end) {
       this.y = mouseY
-      this.color = 75
+      this.color = [134, 141, 251]
       this.label = lerp(min, max , this.y / 1000).toFixed()
     }
   }
