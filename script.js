@@ -6,7 +6,9 @@ let button2 = new Btn(300, 600, 100, 100, [60, 60, 60], '1')
 
 
 function setup() {
+
   let cnv = createCanvas(windowWidth, windowHeight)
+  
   fill(0,255,0)
   noStroke()
 
@@ -15,7 +17,7 @@ function setup() {
   slider1.start = 100
   slider1.end = windowHeight - 100
   slider1.size = 100
-  slider1.color = [62, 67, 150]
+  slider1.color = [62, 67, 150, this.opacity]
   slider1.label = lerp(8000, -2480 , slider1.y / 1000).toFixed()
   slider1.suffix = 'Hz'
 
@@ -24,7 +26,7 @@ function setup() {
   slider2.start = 100
   slider2.end = windowHeight - 100
   slider2.size = 100
-  slider2.color = [62, 67, 150]
+  slider2.color = [62, 67, 150, this.opacity]
   slider2.label = lerp(116, -36 , slider2.y / 1000).toFixed()
   slider2.suffix = '%'
 }
@@ -57,7 +59,6 @@ function mousePressed() {
   }else if (button2.isPressed() && button2.label == '2') {
     button2.label = '1'
   }
-  
 }
 
 
@@ -70,9 +71,10 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-  slider1.color = [62, 67, 150]
+  slider1.color = [62, 67, 150, this.opacity]
   slider1.locked = true
 
-  slider2.color = [62, 67, 150]
+  slider2.color = [62, 67, 150, this.opacity]
   slider2.locked = true
 }
+
