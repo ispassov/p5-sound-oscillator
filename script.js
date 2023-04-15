@@ -5,9 +5,8 @@ let attackLevel = 1
 let decayLevel = 0
 let slider1 = new Slider()
 let slider2 = new Slider()
+let button1 = new Btn(100, 100, 30, [60, 60, 60], 'Play')
 
-let btnPlay
-let btnStop
 
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight)
@@ -39,38 +38,15 @@ function setup() {
   amp = new p5.Amplitude()
   osc.start()
 
-  btnPlay = new Button({
-		x: width / 8,	y: height / 1.1,
-		width: 100,		height: 50,
-		align_x: 0,		align_y: 0,
-		content: 'Play', 
-		on_press() {
-      attackTime = 0.1
-      decayTime = 300
-      attackLevel = +slider2.label / 100
-      decayLevel = 0
-      osc.freq(+slider1.label)
-      env.ramp(osc, 0, attackLevel, decayLevel)
-		}
-	})
-
-  btnStop = new Button({
-		x: width / 3,	y: height / 1.1,
-		width: 100,		height: 50,
-		align_x: 0,		align_y: 0,
-		content: 'Stop', 
-		on_press() {
-      
-		}
-	})
+  
 }
 
 function draw() {
   background(20)
   slider1.display()
   slider2.display()
-  btnPlay.draw()
-  btnStop.draw()
+  button1.display()
+ 
 }
 
 function mousePressed() {
