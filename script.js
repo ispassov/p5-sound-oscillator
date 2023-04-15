@@ -5,7 +5,8 @@ let attackLevel = 1
 let decayLevel = 0
 let slider1 = new Slider()
 let slider2 = new Slider()
-let button1 = new Btn(100, 100, 30, [60, 60, 60], 'Play')
+let button1 = new Btn(180, 500, 100, 100, [60, 60, 60], 'Play')
+let button2 = new Btn(200, 100, 100, 100, [60, 60, 60], '1')
 
 
 function setup() {
@@ -37,8 +38,6 @@ function setup() {
   osc.amp(env)
   amp = new p5.Amplitude()
   osc.start()
-
-  
 }
 
 function draw() {
@@ -46,13 +45,29 @@ function draw() {
   slider1.display()
   slider2.display()
   button1.display()
+  button2.display()
  
 }
 
 function mousePressed() {
   slider1.isPressed()
   slider2.isPressed()
+
+  if(button1.isPressed() && button1.label == 'Play') {
+    button1.label = 'Stop'
+  }else if (button1.isPressed() && button1.label == 'Stop') {
+    button1.label = 'Play'
+  }
+
+  if(button2.isPressed() && button2.label == '1') {
+    button2.label = '2'
+  }else if (button2.isPressed() && button2.label == '2') {
+    button2.label = '1'
+  }
+  
 }
+
+
 
 function mouseDragged() {
   slider1.isDragging(8000, -2480)

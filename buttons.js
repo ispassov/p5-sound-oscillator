@@ -1,25 +1,27 @@
 class Btn {
-  constructor(x, y, size, color, label) {
+  constructor(x, y, sizeX, sizeY, color, label) {
     this.x = x
     this.y = y
-    this.size = size
+    this.sizeX = sizeX
+    this.sizeY = sizeY
     this.color = color
     this.label = label
+
   }
 
   display() {
     fill(this.color)
-    circle(this.x, this.y, this.size)
+    rect(this.x, this.y, this.sizeX, this.sizeY, 20)
     textSize(20)
+    textAlign(CENTER, CENTER)
     fill(255)
-    text(this.label, this.x, this.y)
+    text(this.label, this.x + (this.sizeX / 2), this.y + (this.sizeY / 2))
   }
 
   isPressed() {
-    if (dist(mouseX, mouseY, this.x, this.y) < this.size / 2) {
+   
+    if (mouseX > this.x && mouseX < this.x + this.sizeX && mouseY > this.y && mouseY < this.y + this.sizeY) {
       return true
-    }else {
-      return false
     }
   }
 }

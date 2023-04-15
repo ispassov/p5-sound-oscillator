@@ -17,12 +17,14 @@ class Slider {
     line(this.x, this.start, this.x, this.end)
     circle(this.x, this.y, this.size)
     textSize(20)
+    textAlign(CENTER, CENTER)
     fill(255)
     text(`${this.label} ${this.suffix}`, this.x, this.y)
   }
 
   isPressed() {
     if (dist(mouseX, mouseY, this.x, this.y) < this.size / 2) {
+      this.color = [134, 141, 251]
       this.locked = false
     }
   }
