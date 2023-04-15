@@ -5,8 +5,8 @@ let attackLevel = 1
 let decayLevel = 0
 let slider1 = new Slider()
 let slider2 = new Slider()
-let button1 = new Btn(180, 500, 100, 100, [60, 60, 60], 'Play')
-let button2 = new Btn(200, 100, 100, 100, [60, 60, 60], '1')
+let button1 = new Btn(20, 600, 100, 100, [60, 60, 60], 'Play')
+let button2 = new Btn(300, 600, 100, 100, [60, 60, 60], '1')
 
 
 function setup() {
