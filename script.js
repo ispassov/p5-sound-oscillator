@@ -1,8 +1,4 @@
-let env, osc, amp
-let attackTime = 0.1
-let decayTime = 0.5
-let attackLevel = 1
-let decayLevel = 0
+let osc = new p5.Oscillator()
 let slider1 = new Slider()
 let slider2 = new Slider()
 let button1 = new Btn(20, 600, 100, 100, [60, 60, 60], 'Play')
@@ -31,13 +27,6 @@ function setup() {
   slider2.color = [62, 67, 150]
   slider2.label = lerp(116, -36 , slider2.y / 1000).toFixed()
   slider2.suffix = '%'
-
-  env = new p5.Envelope()
-  env.setADSR(attackTime, decayTime)
-  osc = new p5.Oscillator()
-  osc.amp(env)
-  amp = new p5.Amplitude()
-  osc.start()
 }
 
 function draw() {
@@ -54,8 +43,12 @@ function mousePressed() {
   slider2.isPressed()
 
   if(button1.isPressed() && button1.label == 'Play') {
+    osc.amp(+slider2.label / 100)
+    osc.freq(+slider1.label)
+    osc.start()
     button1.label = 'Stop'
   }else if (button1.isPressed() && button1.label == 'Stop') {
+    osc.stop()
     button1.label = 'Play'
   }
 
@@ -72,6 +65,8 @@ function mousePressed() {
 function mouseDragged() {
   slider1.isDragging(8000, -2480)
   slider2.isDragging(116, -36)
+  osc.amp(+slider2.label / 100)
+  osc.freq(+slider1.label)
 }
 
 function mouseReleased() {
