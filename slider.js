@@ -36,7 +36,6 @@ class Slider {
       this.y = mouseY
       this.opacity = lerp(255, 0 , this.y / 610)
       this.color = [134, 141, 251, this.opacity]
-      
       this.label = lerp(min, max , this.y / 1000).toFixed()
     }
   }

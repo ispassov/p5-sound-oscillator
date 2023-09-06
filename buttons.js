@@ -6,7 +6,6 @@ class Btn {
     this.sizeY = sizeY
     this.color = color
     this.label = label
-
   }
 
   display() {
@@ -19,7 +18,6 @@ class Btn {
   }
 
   isPressed() {
-   
     if (mouseX > this.x && mouseX < this.x + this.sizeX && mouseY > this.y && mouseY < this.y + this.sizeY) {
       return true
     }
